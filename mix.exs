@@ -45,16 +45,8 @@ defmodule ExMicrosoftBot.Mixfile do
         disable_token_validation: false
       ],
       registered: [ExMicrosoftBot.TokenManager, ExMicrosoftBot.SigningKeysManager],
-      applications: applications(Mix.env())
+      extra_applications: [:logger]
     ]
-  end
-
-  defp applications(env) when env in [:dev, :prod] do
-    [:logger, :jose, :tzdata, :timex, :poison]
-  end
-
-  defp applications(:test) do
-    [:bypass | applications(:dev)]
   end
 
   defp deps do
