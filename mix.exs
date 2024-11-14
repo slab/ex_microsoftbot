@@ -51,7 +51,7 @@ defmodule ExMicrosoftBot.Mixfile do
 
   defp deps do
     [
-      {:httpoison, "~> 1.7"},
+      {:httpoison, "~> 2.2"},
       {:poison, "~> 4.0"},
       {:jose, "~> 1.7"},
       {:timex, "~> 3.0"},
