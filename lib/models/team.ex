@@ -12,13 +12,12 @@ defmodule ExMicrosoftBot.Models.Team do
           aadGroupId: String.t()
         }
 
-  @doc "Converts a map into this struct."
+  @doc "Converts a map or a JSON into this struct."
   @spec parse(map()) :: {:ok, __MODULE__.t()}
   def parse(map) when is_map(map) do
     {:ok, Poison.Decode.transform(map, %{as: decoding_map()})}
   end
 
-  @doc "Decodes a JSON string into this struct."
   @spec parse(String.t()) :: __MODULE__.t()
   def parse(json) when is_binary(json) do
     Poison.decode!(json, as: decoding_map())

@@ -21,7 +21,7 @@ defmodule ExMicrosoftBot.Client do
 
   @type error_type :: {:error, integer, String.t()}
 
-  @http_client_opts Application.get_env(:ex_microsoftbot, :http_client_opts, [])
+  @http_client_opts Application.compile_env(:ex_microsoftbot, :http_client_opts, [])
 
   @doc """
   GETs the given URI with an authorized request & standard options, logging the

@@ -60,8 +60,6 @@ defmodule ExMicrosoftBot.Mixfile do
       {:dialyxir, "~> 0.3", only: [:dev]},
       {:ex_doc, "~> 0.19", only: [:dev]},
       {:bypass, "~> 1.0", only: :test},
-      # Required by bypass, incompatible with OTP 22 since 2.8.0:
-      {:cowboy, "< 2.8.0", only: :test}
     ]
   end
 end

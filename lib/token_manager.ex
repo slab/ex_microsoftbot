@@ -12,7 +12,7 @@ defmodule ExMicrosoftBot.TokenManager do
   alias ExMicrosoftBot.{Client, Models}
 
   @auth_api_endpoint "https://login.microsoftonline.com/botframework.com/oauth2/v2.0/token"
-  @scope Application.get_env(:ex_microsoftbot, :scope, "https://api.botframework.com/.default")
+  @scope Application.compile_env(:ex_microsoftbot, :scope, "https://api.botframework.com/.default")
 
   # Public API
 

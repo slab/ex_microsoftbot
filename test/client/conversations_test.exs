@@ -22,20 +22,46 @@ defmodule ExMicrosoftBot.Client.ConversationsTest do
 
         {:ok, body, conn} = read_body(conn)
 
-        assert body ==
-                 "{\"value\":null,\"type\":\"text\",\"topicName\":null," <>
-                   "\"timestamp\":null,\"textFormat\":null,\"text\":\"ohai\"," <>
-                   "\"summary\":null,\"suggestedActions\":null,\"speak\":null," <>
-                   "\"serviceUrl\":null,\"replyToId\":null," <>
-                   "\"recipient\":{" <>
-                   "\"userPrincipalName\":null,\"tenantId\":null,\"surname\":null,\"objectId\":null," <>
-                   "\"name\":\"Jonas\",\"id\":55,\"givenName\":null,\"email\":null" <>
-                   "},\"reactionsRemoved\":null,\"reactionsAdded\":null," <>
-                   "\"membersRemoved\":null,\"membersAdded\":null,\"locale\":null," <>
-                   "\"inputHint\":null,\"id\":null,\"historyDisclosed\":null,\"from\":null," <>
-                   "\"entities\":null,\"conversation\":null,\"code\":null,\"channelId\":null," <>
-                   "\"channelData\":null,\"attachments\":null,\"attachmentLayout\":null," <>
-                   "\"action\":null}"
+        assert Poison.decode!(body) == %{
+          "action" => nil,
+          "attachmentLayout" => nil,
+          "attachments" => nil,
+          "channelData" => nil,
+          "channelId" => nil,
+          "code" => nil,
+          "conversation" => nil,
+          "entities" => nil,
+          "from" => nil,
+          "historyDisclosed" => nil,
+          "id" => nil,
+          "inputHint" => nil,
+          "locale" => nil,
+          "membersAdded" => nil,
+          "membersRemoved" => nil,
+          "reactionsAdded" => nil,
+          "reactionsRemoved" => nil,
+          "recipient" => %{
+            "email" => nil,
+            "givenName" => nil,
+            "id" => 55,
+            "name" => "Jonas",
+            "objectId" => nil,
+            "surname" => nil,
+            "tenantId" => nil,
+            "userPrincipalName" => nil
+          },
+          "replyToId" => nil,
+          "serviceUrl" => nil,
+          "speak" => nil,
+          "suggestedActions" => nil,
+          "summary" => nil,
+          "text" => "ohai",
+          "textFormat" => nil,
+          "timestamp" => nil,
+          "topicName" => nil,
+          "type" => "text",
+          "value" => nil
+        }
 
         resp(conn, 200, "{\"id\":\"12345\"}")
       end)
@@ -69,20 +95,46 @@ defmodule ExMicrosoftBot.Client.ConversationsTest do
 
         {:ok, body, conn} = read_body(conn)
 
-        assert body ==
-                 "{\"value\":null,\"type\":\"text\",\"topicName\":null," <>
-                   "\"timestamp\":null,\"textFormat\":null,\"text\":\"ohai\"," <>
-                   "\"summary\":null,\"suggestedActions\":null,\"speak\":null," <>
-                   "\"serviceUrl\":null,\"replyToId\":null," <>
-                   "\"recipient\":{" <>
-                   "\"userPrincipalName\":null,\"tenantId\":null,\"surname\":null,\"objectId\":null," <>
-                   "\"name\":\"Jonas\",\"id\":55,\"givenName\":null,\"email\":null" <>
-                   "},\"reactionsRemoved\":null,\"reactionsAdded\":null," <>
-                   "\"membersRemoved\":null,\"membersAdded\":null,\"locale\":null," <>
-                   "\"inputHint\":null,\"id\":\"12345\",\"historyDisclosed\":null," <>
-                   "\"from\":null,\"entities\":null,\"conversation\":null," <>
-                   "\"code\":null,\"channelId\":null,\"channelData\":null," <>
-                   "\"attachments\":null,\"attachmentLayout\":null,\"action\":null}"
+        assert Poison.decode!(body) == %{
+          "action" => nil,
+          "attachmentLayout" => nil,
+          "attachments" => nil,
+          "channelData" => nil,
+          "channelId" => nil,
+          "code" => nil,
+          "conversation" => nil,
+          "entities" => nil,
+          "from" => nil,
+          "historyDisclosed" => nil,
+          "id" => "12345",
+          "inputHint" => nil,
+          "locale" => nil,
+          "membersAdded" => nil,
+          "membersRemoved" => nil,
+          "reactionsAdded" => nil,
+          "reactionsRemoved" => nil,
+          "recipient" => %{
+            "email" => nil,
+            "givenName" => nil,
+            "id" => 55,
+            "name" => "Jonas",
+            "objectId" => nil,
+            "surname" => nil,
+            "tenantId" => nil,
+            "userPrincipalName" => nil
+          },
+          "replyToId" => nil,
+          "serviceUrl" => nil,
+          "speak" => nil,
+          "suggestedActions" => nil,
+          "summary" => nil,
+          "text" => "ohai",
+          "textFormat" => nil,
+          "timestamp" => nil,
+          "topicName" => nil,
+          "type" => "text",
+          "value" => nil
+        }
 
         resp(conn, 200, "{\"id\":\"12345\"}")
       end)
